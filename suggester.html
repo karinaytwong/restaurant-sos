@@ -1,57 +1,98 @@
-
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 <style>
 	body {
+        text-align: center;
 		font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        background-image: url("restaurant.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position:top;
 	}
 
-	h1 {
-		text-align: center;
-	}
+    fieldset {
+        width: 70%;
+        background: white;
+        margin-top:50px;
+        margin: 0px auto;
+    }
 
-	h3 {
-		text-align: center;
-	}
+    legend {
+        font-size:20px;
+        font-style:italic;
+        color:white;
+        padding-bottom:20px;
+    }
 
 	table {
-		width: 100%
+        width: 90%;
+        font-size: 12px;
+        margin: 0px auto;
 	}
 
 	th {
+        height: 50px;
+        font-size: 12px;
     	border-bottom: 2px solid grey;
-    	height: 50px;
 	}
+
+    td {
+        height: 20px;
+    }
 
 	tr:nth-child(even) {
 		background: #e9e9e9;
 	}
 
 	input {
-		width: 100%;
+		width: 75%;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        margin: 8px 0;
 	    padding: 12px 20px;
-	    margin: 8px 0;
 	    box-sizing: border-box;
-	    border-bottom: 2px #91bbff;
-	    font-family: 'Open Sans', sans-serif;
-	    font-size: 16px;
-}
+	    border-bottom: 2px #59ba96;
+    }
 
 	button {
-		width: 100%;
-	    border: 2px solid #91bbff;
+        display: inline-block;
+		width: 75%;
+        font-size: 12px;
+	    border: 2px solid #59ba96;
 	    border-radius: 8px;
 	    padding: 10px;
 	    text-align: center;
 	    text-decoration: none;
-	    display: inline-block;
-	    font-size: 16px;
-}
+    }
 
 	button:hover {
-		background-color: #91bbff;
+		background-color: #59ba96;
 		color: white;
+    }
+
+    a {
+    color:inherit;
+    font-family: inherit;
+    font-size: 16px;
+    text-decoration: none;
 }
+
+    .corner-container {
+        position:fixed;
+        right:20px;
+        bottom:20px;
+    }
+
+    .corner-container .corner-button {
+        height: 62px;
+        width: 62px;
+        border:none;
+        background-color:#59ba96;
+        border-radius: 62px;
+        box-shadow:2px 2px 5px rgb(25, 73, 15)  ;
+        cursor:pointer;
+    }
 </style>
 
 <html>
@@ -61,14 +102,17 @@
 </head>
 
 <body>
-<h1>Restaurants Roulette:</h1>
-<h3>(Type in name, cuisine, neighbourhood, price point)</h3>
+
+<div class="corner-container">
+<button class="corner-button"><a href="splitter.html">$</a></button>
+</div>
+
+<fieldset>
+<legend>Restaurant Suggester</legend>
 <input id='input' onkeyup='searchTable()' type='text' placeholder='What are you craving?'>
-
+<div id=wrap>
 <div>
-<button class="button" id="randombutton" onclick="random()"> I can't decide - I'm hungry!</button>
-<div>
-
+<button class="button" id="randombutton" onclick="random()"> I can't decide - Roulette! </button>
 <div>
 <table id="restaurants" cellpadding="10" cellspacing="0">
 	    <col style="width:20%">
@@ -339,7 +383,7 @@
         <td>Downtown</td>
         <td>120 W Hastings Street</td>
         <td>$$$</td>
-        <td>Dinner, Late NIght</td>
+        <td>Dinner, Late Night</td>
     </tr>
     <tr>
         <td>Xi Yan Chinese Seafood Restaurant</td>
@@ -367,9 +411,8 @@
     </tr>
 </table>
 </div>
-
+</fieldset>
 </body>
-
 </html>
 
 <script>
@@ -403,7 +446,7 @@ function random() {
     table = document.getElementById("restaurants");
     rows = table.getElementsByTagName("tr");
     for (i=0; i<rows.length; i++) {
-     	if (rows[i].style.backgroundColor = "#91bbff") {
+     	if (rows[i].style.backgroundColor = "#59ba96") {
      		if (i % 2 == 0) {
      			rows[i].style.backgroundColor = "white";
      		} else {
@@ -412,7 +455,7 @@ function random() {
      	}
      }
     random = Math.floor( Math.random() * rows.length) +1;
-    rows[random].style.backgroundColor = "#91bbff";
+    rows[random].style.backgroundColor = "#59ba96";
     }    
 
 </script>
